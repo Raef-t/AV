@@ -335,7 +335,11 @@ color: white;
    
   }
 }
-
+@media (min-width: 1800px) {
+  .heartbeat{
+    display: none;
+  }
+}
 .heartbeat.active {
   opacity: 1;
   visibility: visible;

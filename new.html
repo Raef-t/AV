@@ -1,407 +1,1299 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>av</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AVERROES</title>
+  <link rel="shortcut icon" href="fav1.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #0f1f2f, #123b51);
+      color: white;
+      overflow-x: hidden;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      z-index: 1000;
+      position: absolute;
+    }
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      position: relative;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #1976ff;
+      transition: width 0.3s;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+    .btn-contact {
+      background: #f03800;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 12px;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
 
-    <!-- ملف التنسيقات الخاص بك -->
-    <link rel="stylesheet" href="css/style.css" />
+    .hero {
+      background: url(background.png) lightgray 50% / cover no-repeat;
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 90vh;
+      padding: 0 40px;
+      overflow: visible;
+    }
+
+    .circle {
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  border-radius: 649.935px;
+  background: #f03800;
+  top: 73%;
+  left: -350px;
+  transform: translateY(-50%) scale(1);
+  transition: all 1.2s ease-in-out;
+  z-index: 2;
+}
+
+.circle.right {
+  width: 366.946px;
+  height: 383.126px;
+  left: 73.3%;
+  top: 50%;
+  
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.text-content {
+  position: absolute;
+  top: 50%;
+  left: 120px;
+  transform: translateY(-50%);
+  z-index: 3;
+  max-width: 600px;
+  text-align: left;
+  opacity: 1;
+  transition: opacity 1s ease;
+}
+    .text-content2 {
+      position: absolute;
+      left: 60px;
+      z-index: 2;
+      max-width: 40%;
+      transition: opacity 0.6s ease;
+    }
+    .text-content.hidden {
+      opacity: 0;
+    }
+    .text-content h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .text-content p {
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 10px;
+  font-family: 'Cairo', sans-serif;
+}
+    .btn-info {
+      background: #1976ff;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      color: white;
+      cursor: pointer;
+    }
+
+    .hero-image {
+      position: relative;
+      z-index: 1;
+      transition: transform 1s ease, opacity 1s ease;
+      max-height: 450px;
+    }
+
+    .image-doctor {
+      transform: translateX(0);
+    top: 110px;
+    width: 597px;
+    left: 799px;
+    height: 511.779px;
+    flex-shrink: 0;
+    }
+    .image-doctor.out {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+
+    .image-implant {
+  position: absolute;
+  top: -500px;
+  margin-top: 46px;
+  left: 68%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: top 1.2s ease, opacity 1.2s ease;
+  z-index: 3;
+}
+.image-implant.in {
+  top: 50%;
+  opacity: 1;
+}
+
+    .products-section {
+      background: #102a3c;
+      padding: 60px 40px;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+    }
+    .product-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      overflow: hidden;
+      width: 280px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .product-card:hover {
+      transform: translateY(-10px);
+    }
+    .product-card img {
+      width: 100%;
+      display: block;
+    }
+    .product-info {
+      padding: 20px;
+    }
+    .product-info h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+    .product-info p {
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+
+    .heartbeat {
+      position: absolute;
+      bottom: 60px;
+      height: 211.87977600097656px;
+      top: 366px;
+      left: 175px;
+      width: 653.7572631835938px;
+      z-index: 2;
+    }
+    .heartbeat.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.heartbeat.fade {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+    .logo{
+      width: 191.91px;
+      height: 82.28px;
+      left: 120px;
+      top: 42px;
+    }
+    .h1-text {
+  color: #FFF;
+  font-family: 'Cairo', sans-serif;
+  font-size: 42px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 50.4px;
+  text-transform: uppercase;
+  text-align: left;
+}
+/* 2nd section */
+
+.products-grid-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: #102a3c;
+  padding: 80px 60px;
+  
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.info-side {
+  flex: 1;
+  max-width: 350px;
+  color: white;
+  margin-top: 152px;
+}
+
+.brand-logo {
+/*  95 */
+
+width: 306px;
+height: 72.45px;
+
+background: url(.png);
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+}
+
+.desc {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.read-more-btn {
+  background: #f03800;
+  color: white;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.products-cards {
+  display: flex;
+  gap: 20px;
+  flex: 2;
+  flex-wrap: wrap;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  width: 276.43115234375px;
+  height: auto;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+
+
+.card img {
+  width: 100%;
+  display: block;
+  transition: opacity 0.4s ease;
+}
+
+.card .hover-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+}
+
+.card:hover .hover-img {
+  opacity: 1;
+}
+
+.card:hover .default-img {
+  opacity: 0;
+}
+@media screen and (max-width: 768px) {
+  .products-grid-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .products-cards {
+    justify-content: center;
+  }
+}
+/*section-3 */
+.half-circle-section {
+  background: #e7e7e7;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.text-side {
+  flex: 1;
+  max-width: 600px;
+  margin-left: 80px;
+}
+
+.brand-logo {
+  width: 200px;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-family: 'Cairo', sans-serif;
+  color: #f03800;
+  font-size: 38px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.description {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #212121;
+}
+
+.read-btn {
+  display: inline-block;
+  margin-top: 25px;
+  background: #195870;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.half-circle {
+  width: 500px;
+  height: 500px;
+  border-top-left-radius: 500px;
+  border-bottom-left-radius: 500px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.half-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Animation setup */
+.slide-from-left,
+.slide-from-right {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+
+.slide-from-left {
+  transform: translateX(-80px);
+}
+
+.slide-from-right {
+  transform: translateX(80px);
+}
+
+.animate-trigger.visible .slide-from-left,
+.animate-trigger.visible .slide-from-right {
+  opacity: 1;
+  transform: translateX(0) translateY(0);
+}
+/* section 4 */
+.achievements-section {
+  display: flex;
+  background: #e7e7e7;
+  padding: 60px 40px;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  border-bottom-right-radius: 120px;
+}
+
+.hand-img {
+  flex: 1;
+  min-width: 250px;
+}
+.hand-img img {
+  width: 100%;
+  max-width: 300px;
+}
+
+.achievements-content {
+  flex: 2;
+  padding-left: 40px;
+}
+
+.achievements-title {
+  font-size: 28px;
+  color: #f03800;
+  font-weight: 700;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #f03800;
+  display: inline-block;
+}
+
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px 50px;
+  margin-top: 30px;
+}
+
+.achievement h3 {
+  font-size: 20px;
+  margin: 0;
+  color: #1a58e2;
+  font-weight: 700;
+}
+.achievement p {
+  margin-top: 5px;
+  color: #212121;
+  font-size: 15px;
+}
+
+.highlight {
+  color: #1a58e2;
+}
+/* countact us section */
+.contactus-section {
+  background: linear-gradient(to bottom, #0e2c3b, #0e2c3b);
+  padding: 80px 60px;
+  color: white;
+  font-family: 'Cairo', sans-serif;
+}
+
+.contactus-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.contactus-header {
+  margin-bottom: 60px;
+}
+
+.contactus-logo {
+  width: 180px;
+  margin-bottom: 20px;
+}
+
+.contactus-description {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #fff;
+  max-width: 800px;
+}
+
+.contactus-form-block h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+  font-weight: 500;
+}
+
+.contactus-form-block form {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+}
+
+.contactus-form-block label {
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.contactus-form-block input,
+.contactus-form-block textarea {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  color: white;
+  font-size: 15px;
+  font-family: inherit;
+  outline: none;
+}
+
+.contactus-form-block textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.contactus-form-block button {
+  background: #f03800;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  width: fit-content;
+  transition: background 0.3s;
+}
+
+.contactus-form-block button:hover {
+  background: #c42f00;
+}
+/* footer */
+.site-footer {
+  background: url('footer.png') no-repeat center center;
+  background-size: cover;
+  padding: 60px 40px;
+  color: white;
+  font-family: 'Cairo', sans-serif;
+}
+
+.footer-overlay {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 60px 40px;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-between;
+}
+
+.footer-col {
+  flex: 1 1 220px;
+  min-width: 200px;
+}
+
+.footer-col h4 {
+  font-size: 16px;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.footer-logo {
+  width: 180px;
+  margin-bottom: 15px;
+}
+
+.footer-col p {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.social-icons a {
+  color: white;
+  margin-right: 10px;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  color: #f03800;
+}
+/* Responsive styles */
+@media screen and (max-width: 992px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    height: auto;
+  }
+
+  .image-doctor,
+  .image-implant {
+    width: 90%;
+    height: auto;
+    left: auto;
+    top: auto;
+    position: static;
+    transform: none;
+  }
+
+  .circle,
+  .circle.right {
+    display: none;
+  }
+
+  .text-content,
+  .text-content2 {
+    position: static;
+    transform: none;
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .text-content h1,
+  .h1-text {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  header {
+    flex-wrap: wrap;
+    padding: 20px;
+    position: relative;
+  }
+
+  nav {
+    display: none;
+    flex-direction: column;
+    background: #0f1f2f;
+    width: 100%;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    padding: 10px 20px;
+  }
+
+  nav.show {
+    display: flex;
+  }
+
+  nav a {
+    margin: 10px 0;
+  }
+
+  .menu-toggle {
+    display: block;
+    cursor: pointer;
+    font-size: 24px;
+    color: white;
+    background: none;
+    border: none;
+  }
+
+  .btn-contact {
+    margin-top: 10px;
+  }
+
+  .logo {
+    width: 150px;
+    height: auto;
+  }
+}
+
+/* Default hide toggle icon */
+.menu-toggle {
+  display: none;
+}
+
+/* Footer responsive */
+@media screen and (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+  .footer-col {
+    margin-bottom: 20px;
+  }
+}
+
+  </style>
+  <style>
+    /* Utility */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 20px;
+    }
+    
+    img, svg {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    body {
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+    
+    .menu-toggle {
+      display: none;
+    }
+    
+    @media screen and (max-width: 992px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background: #0f1f2f;
+        width: 100%;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        padding: 10px 20px;
+        z-index: 999;
+      }
+      nav.show {
+        display: flex;
+      }
+      .menu-toggle {
+        display: block;
+        font-size: 26px;
+        background: none;
+        color: white;
+        border: none;
+        cursor: pointer;
+        margin-left: auto;
+        padding: 10px;
+        z-index: 1000;
+      }
+    }
+    
+    /* HERO SECTION SHRUNK BUT SIDE-BY-SIDE */
+    @media screen and (max-width: 768px) {
+      .hero {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 20px;
+        gap: 8px;
+        height: auto;
+        overflow: hidden;
+      }
+    
+      .text-content, .text-content2 {
+        position: relative;
+        transform: none;
+        max-width: 45%;
+        padding: 0;
+        text-align: left;
+        z-index: 3;
+        margin: 0;
+      }
+    
+      .text-content h1, .h1-text {
+        font-size: 17px;
+        line-height: 24px;
+      }
+    
+      .text-content p {
+        font-size: 13px;
+        margin-bottom: 8px;
+      }
+    
+      .hero-image {
+        max-width: 45%;
+        height: auto;
+        position: relative;
+        z-index: 2;
+        margin: 0;
+      }
+    
+      .circle {
+        display: block;
+        width: 160px;
+        height: 160px;
+        top: 60%;
+        left: -80px;
+        position: absolute;
+        z-index: 1;
+      }
+    
+      .circle.right {
+        width: 130px;
+        height: 130px;
+        top: 50%;
+        left: auto;
+        right: 0;
+        transform: translateY(-50%);
+      }
+    
+      .heartbeat {
+        display: none;
+      }
+    
+      .btn-contact {
+        display: none;
+      }
+    
+      nav.show .btn-contact {
+        display: inline-block;
+        background: #f03800;
+        color: white;
+        padding: 8px 16px;
+        font-size: 14px;
+        border-radius: 8px;
+        margin-top: 10px;
+      }
+    
+      .logo {
+        width: 120px !important;
+        height: auto;
+      }
+    }
+    
+    /* PRODUCT SECTION */
+    .products-section,
+    .products-cards,
+    .achievements-section,
+    .products-grid-section {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .card img,
+    .product-card img,
+    .half-circle img {
+      object-fit: cover;
+    }
+    
+    .logo,
+    .footer-logo,
+    .contactus-logo,
+    .brand-logo {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    /* HALF CIRCLE SECTION */
+    .half-circle-section {
+      overflow-x: hidden;
+      width: 100%;
+    }
+    
+    @media screen and (max-width: 992px) {
+      .half-circle-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+      }
+      .half-circle,
+      .text-side {
+        max-width: 100%;
+        margin: 0;
+      }
+      .half-circle {
+        width: 100%;
+        height: auto;
+        border-radius: 0;
+      }
+    }
+    
+    /* ANIMATIONS */
+    .slide-from-left,
+    .slide-from-right {
+      will-change: transform, opacity;
+      max-width: 100%;
+      overflow-x: hidden;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease-out;
+    }
+    
+    .slide-from-left {
+      transform: translateX(-80px);
+    }
+    
+    .slide-from-right {
+      transform: translateX(80px);
+    }
+    
+    .animate-trigger.visible .slide-from-left,
+    .animate-trigger.visible .slide-from-right {
+      opacity: 1;
+      transform: translateX(0) translateY(0);
+    }
+    
+    /* ACHIEVEMENTS */
+    @media screen and (max-width: 768px) {
+      .achievements-content {
+        padding-left: 0;
+        text-align: center;
+      }
+      .achievements-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    /* FOOTER */
+    @media screen and (max-width: 768px) {
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      .footer-col {
+        margin-bottom: 20px;
+      }
+    }
+    </style>
 </head>
-
 <body>
-
-
-    <div class="container-fluid hero-background-image ">
-        <div class="animated-circle"></div>
-        <div> <img id="implantImg" src="SLIDE-GENUTECH-CCK-10-21 1.png" alt="Implant Image" />
-        </div>
-
-        <nav class="navbar navbar-expand-lg  ">
-
-            <div class="container mt-3">
-                <img src="av-logo.png" alt="Logo" height="50">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-4">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" id="home-btn">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" id="products-btn">Products</a>
-                        </li>
-
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">About Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Surgical</a>
-                        </li>
-                    </ul>
-                    <div class="ms-auto">
-                        <a href="#" class="btn btn-custom-red">Contact Us</a>
-                    </div>
-                </div>
-
-            </div>
-        </nav>
-
-
-        <div class="container">
-            <div class="row align-items-center">
-                <!-- القلب الأول مع تأثير النبض -->
-                <div class="heartbeat" id="hart1">
-                    <svg  viewBox="0 0 664 223" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M5.02832 126.229C2.2669 126.229 0.0283203 128.467 0.0283203 131.229C0.0283203 133.99 2.2669 136.229 5.02832 136.229V126.229ZM490.082 131.229V136.229H493.379L494.678 133.198L490.082 131.229ZM507.262 91.1434L511.952 89.4098C511.242 87.4904 509.435 86.197 507.389 86.145C505.343 86.093 503.472 87.2928 502.666 89.1738L507.262 91.1434ZM543.247 188.494L538.557 190.227C539.311 192.266 541.295 193.585 543.467 193.489C545.639 193.393 547.5 191.905 548.071 189.808L543.247 188.494ZM593.159 5.24609L598.066 4.28465C597.619 2.00516 595.662 0.333477 593.34 0.249372C591.019 0.165267 588.945 1.69089 588.335 3.93208L593.159 5.24609ZM634.676 217.126L629.77 218.087C630.244 220.506 632.41 222.219 634.873 222.122C637.336 222.025 639.361 220.148 639.643 217.699L634.676 217.126ZM647.561 105.459V100.459C645.021 100.459 642.885 102.363 642.594 104.886L647.561 105.459ZM658.786 110.459C661.547 110.459 663.786 108.221 663.786 105.459C663.786 102.698 661.547 100.459 658.786 100.459V110.459ZM5.02832 136.229H490.082V126.229H5.02832V136.229ZM494.678 133.198L511.858 93.113L502.666 89.1738L485.486 129.259L494.678 133.198ZM502.572 92.877L538.557 190.227L547.937 186.76L511.952 89.4098L502.572 92.877ZM548.071 189.808L597.983 6.56011L588.335 3.93208L538.422 187.18L548.071 189.808ZM588.253 6.20754L629.77 218.087L639.583 216.164L598.066 4.28465L588.253 6.20754ZM639.643 217.699L652.528 106.033L642.594 104.886L629.709 216.553L639.643 217.699ZM647.561 110.459H658.786V100.459H647.561V110.459Z"
-                            fill="white" fill-opacity="0.08" />
-                    </svg>
-                </div>
-
-                <!-- القلب الثاني مع تأثير النبض -->
-                <div class="heartbeat fade" id="hart2">
-                    <svg  viewBox="0 0 806 223" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M5.02783 126.7C2.26641 126.7 0.027832 128.939 0.027832 131.7C0.027832 134.461 2.26641 136.7 5.02783 136.7V126.7ZM490.082 131.7V136.7H493.379L494.677 133.67L490.082 131.7ZM507.261 91.6146L511.951 89.881C511.242 87.9615 509.434 86.6682 507.388 86.6162C505.343 86.5642 503.472 87.764 502.666 89.645L507.261 91.6146ZM543.246 188.965L538.556 190.698C539.31 192.737 541.295 194.056 543.466 193.96C545.638 193.864 547.499 192.376 548.07 190.279L543.246 188.965ZM593.159 5.71729L598.065 4.75584C597.619 2.47635 595.661 0.804669 593.34 0.720564C591.018 0.636459 588.945 2.16208 588.334 4.40327L593.159 5.71729ZM634.676 217.597L629.769 218.559C630.243 220.977 632.409 222.69 634.872 222.593C637.335 222.496 639.36 220.619 639.643 218.17L634.676 217.597ZM647.56 105.931V100.931C645.021 100.931 642.884 102.835 642.593 105.357L647.56 105.931ZM800.711 110.931C803.472 110.931 805.711 108.692 805.711 105.931C805.711 103.169 803.472 100.931 800.711 100.931V110.931ZM5.02783 136.7H490.082V126.7H5.02783V136.7ZM494.677 133.67L511.857 93.5842L502.666 89.645L485.486 129.73L494.677 133.67ZM502.571 93.3482L538.556 190.698L547.936 187.231L511.951 89.881L502.571 93.3482ZM548.07 190.279L597.983 7.0313L588.334 4.40327L538.422 187.651L548.07 190.279ZM588.252 6.67873L629.769 218.559L639.582 216.636L598.065 4.75584L588.252 6.67873ZM639.643 218.17L652.527 106.504L642.593 105.357L629.709 217.024L639.643 218.17ZM647.56 110.931H800.711V100.931H647.56V110.931Z"
-                            fill="white" fill-opacity="0.08" />
-                    </svg>
-                </div>
-                <!-- النص -->
-                <div class="col-6 text-white ">
-                    <div id="mainText">
-                        <p style="font-size: 1.2vw;">Welcome To</p>
-                        <h1 style="font-size: 2.5vw;">AVERRES EXCLUSIVE AGENT OF SERGOVAL SPANISH COMPANY</h1>
-                    </div>
-                    <div class="text-content hidden" id="textImplant">
-                        <h1 style="font-size: 2.5vw;">GENUTECH CCK</h1>
-                        <p style="font-size: 1.2vw;">Designed for the most rigorous demands in revision total knee arthroplasties and large bone
-                            defects.</p>
-                        <button class="btn btn-info" style="width: 10vw;font-size: 1.2vw;">More Info</button>
-                    </div>
-
-                </div>
-
-
-
-                <!-- الصورة -->
-                <div class="col-6 text-center">
-                    <img src="doc.png" alt="Hero Image" class="img-fluid hero-img transition-target">
-
-
-                </div>
-
-
-            </div>
-        </div>
-
-
-
+  <header>
+    <div class="logo" >
+      <svg xmlns="http://www.w3.org/2000/svg" width="192" height="83" viewBox="0 0 192 83" fill="none">
+        <g clip-path="url(#clip0_154_181)">
+        <path d="M127.81 58.5786C140.115 58.5786 150.09 48.6035 150.09 36.2986C150.09 23.9937 140.115 14.0186 127.81 14.0186C115.505 14.0186 105.53 23.9937 105.53 36.2986C105.53 48.6035 115.505 58.5786 127.81 58.5786Z" fill="#EF3834"/>
+        <path d="M168.56 35.9588V33.5388C168.56 30.6888 168.42 27.8588 167.76 25.0788C167.38 23.4788 166.85 21.9288 165.74 20.6588C162.31 16.6888 156.98 16.4988 153.42 18.3688C151.23 19.5188 149.88 21.3988 148.95 23.6288C147.66 26.7088 147.27 29.9588 147.12 33.2588V37.3588C147.17 38.3488 147.24 39.3488 147.3 40.3788H146.62C146.42 40.5388 146.21 40.6788 146.01 40.8488C145.49 41.2788 145.56 41.9088 145.48 42.4788C145.35 43.3388 145.25 44.2088 145.13 45.0788C145.03 45.9988 144.95 46.9288 144.84 47.8388C144.62 49.5788 144.39 51.2988 144.18 53.0388C143.88 55.3488 143.61 57.6488 143.3 59.9588C142.97 62.4088 142.61 64.8488 142.26 67.2988C142.23 67.5088 142.18 67.7088 142.14 67.9188C142.1 67.9188 142.06 67.9188 142.02 67.9188C141.99 67.7088 141.94 67.5088 141.92 67.2888C141.59 63.7588 141.27 60.2388 140.93 56.7088C140.78 55.1388 140.61 53.5788 140.45 52.0088C140.43 51.8888 140.45 51.7788 140.45 51.6588C140.24 49.8988 140.02 48.1488 139.83 46.3788C139.69 45.0388 139.6 43.6688 139.46 42.3188C139.26 40.3288 139.06 38.3288 138.87 36.3288C138.74 35.0188 138.64 33.7088 138.51 32.3988C138.31 30.4088 138.1 28.4088 137.92 26.3988C137.79 25.0888 137.69 23.7788 137.55 22.4788C137.41 21.1788 137.24 19.8888 137.09 18.5888C137.05 18.2888 137.05 17.9788 137.04 17.6788C137.02 17.5688 136.98 17.4588 136.97 17.3388C136.7 14.7088 136.46 12.0788 136.18 9.44879C135.91 6.85879 135.59 4.27879 135.31 1.69879C135.26 1.17879 135.08 0.748789 134.6 0.508789H133.47C133.07 0.768789 132.91 1.14879 132.84 1.60879C132.3 4.81879 131.75 8.01879 131.21 11.2288C131.01 12.4288 130.82 13.6488 130.63 14.8688C130.43 16.2088 130.25 17.5488 130.05 18.8888C129.85 20.2288 129.67 21.5788 129.46 22.9188C129.22 24.5688 128.97 26.2288 128.72 27.8788C128.62 28.5388 128.53 29.1888 128.42 29.8488C128.11 31.7488 127.78 33.6488 127.48 35.5488C127.17 37.5388 126.89 39.5188 126.59 41.5088C126.25 43.7088 125.91 45.8988 125.55 48.0888C125.35 49.3588 125.09 50.6188 124.85 51.8888C124.83 51.9988 124.79 52.0988 124.67 52.2188C124.53 51.4488 124.37 50.6788 124.25 49.9088C123.96 48.1288 123.7 46.3388 123.42 44.5588C123.18 42.9688 122.94 41.3888 122.67 39.8088C122.38 38.0788 122.06 36.3588 121.76 34.6388C121.39 32.5388 121 30.4288 120.69 28.3188C120.58 27.5988 120.05 27.2988 119.49 27.2388C118.84 27.1588 118.38 27.4588 118.18 28.0588C117.66 29.6188 117.16 31.1888 116.67 32.7688C115.9 35.2188 115.15 37.6888 114.39 40.1488C114.36 40.2388 114.19 40.3688 114.09 40.3688C110.65 40.3688 107.22 40.3688 103.78 40.3488H100.5C100.5 40.2288 100.47 40.1188 100.47 40.0088C100.47 36.7788 100.44 33.5488 100.51 30.3188C100.54 29.1188 100.77 27.8988 101.03 26.7188C101.37 25.1888 102.37 24.1588 103.84 23.6088C105.1 23.1388 106.4 22.8788 107.73 22.8688C108.06 22.8288 108.39 22.7888 108.76 22.7388V17.2788C108.47 17.2588 108.21 17.2088 107.96 17.2188C106.4 17.2988 104.98 17.7988 103.75 18.7688C102.49 19.7488 101.58 21.0088 100.82 22.3888C100.74 22.5288 100.65 22.6588 100.56 22.7888C100.53 22.7688 100.49 22.7588 100.45 22.7388V17.6688H93.8896V51.8388H100.47V43.0888H104.51C105.56 43.0888 106.6 43.0688 107.64 43.0688C110.19 43.0688 112.75 43.0488 115.29 43.0888C115.97 43.0888 116.35 42.7888 116.56 42.2288C116.94 41.2088 117.26 40.1788 117.6 39.1488C117.98 37.9488 118.34 36.7288 118.72 35.5088C118.75 35.4188 118.79 35.3388 118.92 35.2388C118.97 35.4988 119.05 35.7488 119.08 36.0088C119.48 38.2288 119.88 40.4488 120.25 42.6688C120.55 44.4388 120.81 46.2088 121.09 47.9788C121.46 50.2588 121.82 52.5388 122.19 54.8188C122.35 55.7888 122.53 56.7588 122.7 57.7288C122.73 57.8588 122.75 57.9788 122.78 58.1088C123.03 59.5388 123.26 60.9788 123.53 62.4088C123.67 63.1988 124.24 63.6188 124.98 63.5388C125.71 63.4688 126.1 63.0788 126.23 62.2688C126.47 60.7788 126.71 59.2788 126.95 57.7888C127.18 56.2188 127.41 54.6488 127.65 53.0788C127.85 51.7388 128.03 50.3888 128.24 49.0488C128.37 48.2688 128.55 47.4888 128.68 46.6988C128.95 44.9688 129.2 43.2388 129.45 41.5088C129.79 39.2288 130.14 36.9388 130.47 34.6488C130.71 33.0088 130.93 31.3588 131.19 29.7188C131.41 28.3188 131.67 26.9188 131.89 25.5188C132.16 23.7888 132.4 22.0588 132.66 20.3288C132.87 18.8588 133.08 17.3788 133.29 15.9088C133.29 15.8588 133.34 15.7988 133.36 15.7488C133.45 15.1588 133.52 14.5788 133.6 13.9888H133.81C133.86 14.6488 133.91 15.3288 133.96 15.9988C134.02 16.5988 134.09 17.1988 134.15 17.8088C134.44 20.4388 134.73 23.0788 135 25.7088C135.2 27.5888 135.35 29.4788 135.53 31.3588C135.76 33.6588 136 35.9588 136.22 38.2588C136.47 40.8788 136.7 43.4988 136.95 46.1188C137.03 46.9888 137.11 47.8488 137.21 48.7088C137.4 50.3988 137.6 52.0788 137.8 53.7588C137.8 53.7988 137.8 53.8488 137.78 53.8888C137.91 55.0788 138.03 56.2688 138.15 57.4688C138.36 59.6088 138.56 61.7488 138.77 63.8988C139.04 66.7288 139.33 69.5688 139.62 72.3988C139.84 74.5288 140.09 76.6688 140.32 78.7988C140.39 79.4288 140.45 80.0688 140.51 80.6988C140.59 81.5488 140.64 82.4088 141.71 82.6488C141.71 82.6488 141.71 82.7388 141.73 82.7788H141.9C142.01 82.7188 142.13 82.6688 142.24 82.5988C142.51 82.4188 142.87 82.2988 143.01 82.0388C143.2 81.7188 143.24 81.3088 143.3 80.9288C143.56 79.1788 143.79 77.4388 144.03 75.6888C144.34 73.3188 144.65 70.9488 144.95 68.5888C145.18 66.8088 145.39 65.0288 145.63 63.2488C145.86 61.5788 146.11 59.9088 146.34 58.2388C146.45 57.4588 146.53 56.6588 146.63 55.8788C147.02 52.7688 147.42 49.6488 147.82 46.5388C147.91 45.8588 148 45.1688 148.09 44.4088C148.37 45.1388 148.59 45.7988 148.86 46.4288C150.06 49.1288 151.92 51.1388 154.86 51.9188C157.21 52.5488 159.57 52.4388 161.89 51.6788C163.44 51.1588 164.74 50.2588 165.72 48.9388C167.63 46.3788 168.03 43.3888 168.15 40.3088H162.26C162.23 40.8688 162.21 41.3888 162.17 41.8988C162.08 43.0588 161.94 44.2088 161.47 45.2888C161.1 46.1388 160.47 46.7088 159.56 46.9188C157.61 47.3688 155.38 46.9188 154.69 44.1388C154.1 41.7388 153.99 39.2988 153.96 36.8488V35.9288H168.53L168.56 35.9588ZM154.02 28.9488C154.09 27.2988 154.24 25.6588 154.71 24.0588C155.42 21.6688 157.43 21.2588 159.06 21.6188C160.05 21.8388 160.75 22.5088 161.05 23.4488C161.39 24.4888 161.58 25.5788 161.81 26.6488C161.9 27.0288 161.91 27.4288 161.92 27.8088C161.92 28.8588 161.92 29.8988 161.92 30.9788H154.01C154.01 30.2788 153.99 29.6088 154.01 28.9388L154.02 28.9488Z" fill="#F4FBFE"/>
+        <path d="M16.9299 17.5186H12.9299C10.3299 29.3786 7.73988 41.2286 5.12988 53.0986H9.77988C10.2299 50.7386 10.6799 48.3786 11.1199 46.0286H18.7199C18.7399 46.1186 18.7699 46.1786 18.7799 46.2586C19.1999 48.4686 19.6199 50.6686 20.0299 52.8786C20.0599 53.0586 20.1299 53.1186 20.3099 53.1186C20.9499 53.1186 21.5999 53.1186 22.2399 53.1186H24.7899C22.1699 41.2386 19.5499 29.3786 16.9399 17.5286L16.9299 17.5186ZM11.8199 42.4486C12.8199 36.8286 13.8199 31.2086 14.8199 25.5986C14.8599 25.5986 14.8999 25.5986 14.9399 25.5886C15.9899 31.1986 17.0399 36.8186 18.0899 42.4486H11.8299H11.8199Z" fill="#F4FBFE" stroke="#F4FBFE" stroke-width="0.75" stroke-miterlimit="10"/>
+        <path d="M70.01 35.9585C70.01 35.1385 70.01 34.3385 70.01 33.5485C70.01 30.6985 69.87 27.8685 69.21 25.0885C68.82 23.4585 68.28 21.8885 67.14 20.5985C63.86 16.8885 58.92 16.5085 55.26 18.1785C52.95 19.2285 51.5 21.1185 50.51 23.3885C49.17 26.4385 48.76 29.6785 48.59 32.9585C48.47 35.3485 48.5 37.7385 48.76 40.1285C49 42.3085 49.43 44.4485 50.33 46.4685C51.53 49.1685 53.39 51.1785 56.33 51.9585C58.68 52.5785 61.04 52.4785 63.36 51.7185C64.91 51.2085 66.21 50.2985 67.19 48.9885C69.1 46.4285 69.5 43.4385 69.62 40.3585H63.73C63.7 40.9085 63.68 41.4285 63.64 41.9485C63.55 43.1085 63.41 44.2585 62.94 45.3385C62.57 46.1885 61.94 46.7585 61.03 46.9685C59.08 47.4185 56.85 46.9685 56.16 44.1785C55.57 41.7785 55.47 39.3385 55.44 36.8885C55.44 36.5885 55.44 36.2885 55.44 35.9685H70.01V35.9585ZM55.43 30.9785C55.45 28.6185 55.5 26.2985 56.16 24.0485C56.87 21.6485 58.91 21.2585 60.52 21.6285C61.5 21.8485 62.19 22.5085 62.49 23.4285C62.83 24.4385 63.02 25.4885 63.24 26.5385C63.33 26.9585 63.36 27.3985 63.37 27.8385C63.39 28.8785 63.37 29.9185 63.37 30.9885H55.42L55.43 30.9785Z" fill="#F4FBFE"/>
+        <path d="M46.5501 17.6992C46.2201 18.8892 45.9001 20.0592 45.5701 21.2292C42.8001 31.2792 40.0301 41.3392 37.2601 51.3892C37.1601 51.7692 37.0301 51.9192 36.6001 51.9092C35.3301 51.8692 34.0501 51.8992 32.7501 51.8992C29.5301 40.5092 26.3101 29.1292 23.0801 17.6992H29.5801C31.3401 25.6892 33.0901 33.6692 34.8501 41.6492C34.8801 41.6492 34.9101 41.6592 34.9301 41.6692C36.6901 33.6792 38.4501 25.6892 40.2101 17.6992H46.5501Z" fill="#F4FBFE"/>
+        <path d="M89.9196 17.3091V22.7191C88.6896 22.8991 87.4896 23.0691 86.2896 23.2491C86.1296 23.2691 85.9796 23.3291 85.8296 23.3591C83.4896 23.9391 82.2496 25.5091 81.9496 27.8291C81.7796 29.1191 81.6696 30.4291 81.6696 31.7291C81.6396 38.2591 81.6596 44.7891 81.6596 51.3191V51.8591H75.0996V17.6991H81.6496V22.7791C81.6496 22.7791 81.7196 22.8091 81.7596 22.8191C81.8396 22.6891 81.9396 22.5591 82.0096 22.4191C82.7696 21.0291 83.6896 19.7791 84.9396 18.7991C86.1796 17.8291 87.5896 17.3291 89.1496 17.2591C89.3996 17.2491 89.6596 17.2991 89.9196 17.3191V17.3091Z" fill="#F4FBFE"/>
+        <path d="M184.02 52.0886C181.37 52.5286 178.87 51.9586 176.4 51.0886C175.56 50.7886 175.56 50.7786 175.56 49.8986V45.5286C176.66 45.8786 177.71 46.2386 178.78 46.5286C179.99 46.8586 181.22 47.0486 182.48 46.8786C185.3 46.5186 186.12 43.9186 185.38 41.9086C185 40.8686 184.38 39.9586 183.59 39.2186C182.15 37.8686 180.68 36.5586 179.18 35.2786C177.32 33.6886 175.76 31.8986 174.97 29.5386C173.33 24.6486 175.64 19.4486 180.27 17.6486C182.47 16.7886 184.72 16.8386 186.98 17.3786C187.96 17.6086 188.93 17.9286 189.9 18.1986C190.1 18.2586 190.22 18.3286 190.21 18.5786C190.2 20.1986 190.21 21.8286 190.21 23.5086C189.76 23.3486 189.35 23.1886 188.93 23.0486C187.56 22.5886 186.17 22.2186 184.72 22.3286C184.11 22.3686 183.47 22.4786 182.9 22.6886C180.81 23.4586 179.95 25.6386 180.89 27.7186C181.44 28.9386 182.39 29.8486 183.35 30.7286C184.79 32.0586 186.3 33.3086 187.69 34.6786C188.67 35.6386 189.62 36.6686 190.37 37.8086C193.88 43.1086 191.31 50.8786 184.03 52.0986L184.02 52.0886Z" fill="#F4FBFE"/>
+        <path d="M147.13 33.2588C147.13 34.6288 147.13 35.9988 147.13 37.3688C147.1 37.3088 147.079 37.2388 147.049 37.1788C147.029 36.2188 147.009 35.2588 146.979 34.2988C147.029 33.9588 147.08 33.6088 147.13 33.2588Z" fill="#F4FBFE"/>
+        <path d="M147.05 37.1787C147.08 37.2387 147.1 37.3087 147.13 37.3687C147.19 38.3587 147.25 39.3487 147.31 40.3787H146.63C146.77 39.3087 146.91 38.2387 147.05 37.1787Z" fill="#F4FBFE"/>
+        <path d="M133.98 16.0286C133.78 15.9486 133.58 15.8586 133.38 15.7786C133.46 15.1886 133.54 14.6086 133.62 14.0186C133.69 14.0186 133.76 14.0186 133.83 14.0186C133.88 14.6886 133.93 15.3586 133.98 16.0286Z" fill="#F4FBFE"/>
+        <path d="M148.09 62.2481H191.91V58.5781H148.87L148.09 62.2481Z" fill="#EF3834"/>
+        <path d="M3.13 62.2481H121.22L120.44 58.5781H0L3.13 62.2481Z" fill="#EF3834"/>
+        
+        </g>
+      </svg>
     </div>
-    <section class="products-grid-section py-5">
-        <div class="container">
-            <div class="row align-items-center mb-4">
-                <!-- الجانب النصي -->
-                <div class="col-md-4 text-center text-md-start mb-4 mb-md-0">
-                    <img src="surgival-logo.png" alt="Surgival Logo" class="img-fluid mb-3" style="max-width: 200px;">
-                    <p class="text-white">
-                        A Spanish Company Specializing In The Manufacture Of High-Quality Surgical Instruments,
-                        Offering Innovative Solutions To Improve Surgical Outcomes And Ensure Patient Safety.
-                    </p>
-                    <button class="btn btn-custom-red rounded-pill px-4 mt-2">Read More</button>
-                </div>
+    <nav>
+      <a href="#" onclick="reverseAnimation()">Home</a>
+      <a href="#" onclick="triggerAnimation()">Products</a>
+      <a href="#">About Us</a>
+      <a href="#">Surgical</a>
+      
+    </nav>
+    <button class="btn-contact co-us">Contact Us</button>
+  </header>
 
-                <!-- المنتجات -->
-                <div class="col-md-8">
-                    <div class="row g-4">
-                        <!-- كارد 1 -->
-                        <div class="col-sm-6 col-lg-4">
-                            <div class="position-relative image-switch-card">
-                                <img src="hip.png" alt="Hip" class="img-fluid w-100 default-img">
-                                <img src="hip-hover.png" alt="Hip Hover"
-                                    class="img-fluid w-100 hover-img position-absolute top-0 start-0">
-                            </div>
-                        </div>
+  <section class="hero">
+ <div class="" id="textDoctor">
+  <p>Welcome To</p>
+  <h1 class="h1-text">AVERRES EXCLUSIVE AGENT OF SERGOVAL SPANISH COMPANY</h1>
+</div>
 
-                        <!-- كارد 2 -->
-
-                        <div class="col-sm-6 col-lg-4">
-                            <div class="position-relative image-switch-card">
-                                <img src="knee.png" alt="Hip" class="img-fluid w-100 default-img">
-                                <img src="knee-hover.png" alt="Hip Hover"
-                                    class="img-fluid w-100 hover-img position-absolute top-0 start-0">
-                            </div>
-                        </div>
-                        <!--  -->
-                        <!-- كارد 3 -->
-                        <div class="col-sm-6 col-lg-4">
-                            <div class="position-relative image-switch-card">
-                                <img src="cement.png" alt="Hip" class="img-fluid w-100 default-img">
-                                <img src="cement-hover.png" alt="Hip Hover"
-                                    class="img-fluid w-100 hover-img position-absolute top-0 start-0">
-                            </div>
-                        </div>
-
-                        <!--  -->
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <div class="backcolor">
-        <section class="py-5 rounded-end-bottom">
-            <div class="container">
-
-                <!-- الكرت 1 -->
-                <div class="row align-items-center mb-5">
-
-                    <div class="col-md-6  mb-3" data-aos="fade-right">
-                        <img src="goldenstaplet-logo.png" class="img-fluid rounded mb-3" alt="Image 1" />
-                        <h3 class="mb-3 Title-card">Endoscopic Surgery</h3>
-                        <p class="mb-3 fs-5"> Golden Stapler provides advanced surgical stapling and cutting solutions
-                            for
-                            open and endoscopic procedures.
-                            Our products are designed for maximum safety and efficiency, ensuring better outcomes for
-                            surgeons and patients.</p>
-                        <a href="#" class="btn btn-b">Read More</a>
-
-                    </div>
-                    <div class="col-md-6" data-aos="fade-left">
-                        <img src="goldenstaplet.png" class="img-fluid rounded" alt="Image 1" />
-                    </div>
-                </div>
-
-                <!-- الكرت 2 -->
-                <div class="row align-items-center mb-5 flex-md-row-reverse">
-                    <div class="col-md-6 mb-3" data-aos="fade-left">
-                        <img src="omni-logo.png" class="img-fluid rounded mb-3" alt="Image 2" />
-                        <h3 class="mb-3 Title-card">Ophthalmic Surgery</h3>
-                        <p class="mb-3 fs-5">
-                            Omni is a leading provider of medical equipment, from surgical instruments to patient
-                            monitoring
-                            systems and
-                            disposable medical supplies. We deliver cutting-edge technology to enhance healthcare with
-                            the
-                            highest quality standards.
-                        </p>
-                        <a href="#" class="btn btn-b">Read More</a>
-                    </div>
-                    <div class="col-md-6  " data-aos="fade-right">
-
-                        <img src="omni.png" class="img-fluid rounded" alt="Image 2" />
-                    </div>
-                </div>
-                <!-- الكرت3 -->
-                <div class="row align-items-center mb-5 flex-md-row-reverse">
-                    <div class="col-md-6" data-aos="fade-left">
-                        <img src="hipro.png" class="img-fluid rounded" alt="Image 2" />
-
-                    </div>
-                    <div class="col-md-6  mb-3" data-aos="fade-right">
-
-                        <img src="hipro-logo.png" class="img-fluid rounded mb-3" alt="Image 2" />
-                        <h3 class="mb-3 Title-card">Medical Laboratory Materials</h3>
-                        <p class="mb-3 fs-5">
-                            The GoldenStapler Endo Cutter is a single-use surgical device for cutting and stapling
-                            tissues
-                            in open and endoscopic procedures...
-                        </p>
-                        <a href="#" class="btn btn-b">Read More</a>
-                    </div>
-                </div>
-
-
-            </div>
-            <!--  -->
-            <div class="container-fluid" style="margin-top: 20vh;">
-                <div class="row">
-                    <div class="col-4">
-                        <img id="handImage" src="hand-hover.png" alt="Hand Scan" class="waving-hand">
-                    </div>
-
-
-                    <div class="col-8">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col text-start">
-                                    <h1 class="text-orange">Averroes Achievements</h1>
-                                    <hr class="underline-line">
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <h2 class="fs-1 fw-bold text-primary"><span class="counter"
-                                            data-target="15">0</span> years</h2>
-
-                                    <p class="fs-3">as exclusive agent for Sergival</p>
-                                </div>
-                                <div class="col-md-6">
-                                    <h2 class="fs-1 fw-bold text-primary"> +<span class="counter"
-                                            data-target="25">0</span> Advanced</h2>
-                                    <p class="fs-3">Medical Products</p>
-                                </div>
-                            </div>
-                            <div class="row">
-
-                                <div class="col-md-6">
-                                    <h2 class="fs-1 fw-bold text-primary"> +<span class="counter"
-                                            data-target="25">0</span> Doctors</h2>
-                                    <p class="fs-3">Trust Our Products</p>
-                                </div>
-                                <div class="col-md-6">
-                                    <h2 class="fs-1 fw-bold text-primary"><span class="counter"
-                                            data-target="30">0</span> years</h2>
-                                    <p class="fs-3">surgical experience</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </section>
+    <div class="hidden" id="textImplant">
+      <h1>GENUTECH CCK</h1>
+      <p>Designed for the most rigorous demands in revision total knee arthroplasties and large bone defects.</p>
+      <button class="btn-info">More Info</button>
     </div>
-    <section class="py-5  backcolor">
-        <div class="container">
-            <div class="row align-items-center mb-5">
-                <div class="col-lg-4 mb-4 mb-lg-0">
-                    <img src="av-logo.png" alt="Averroes Logo" class="img-fluid" style="max-width: 200px;">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <p class="fs-5 text-white">
-                        <strong>Averroes</strong> is a trusted partner in the healthcare sector, providing high-quality
-                        medical products from leading global brands like Surgival, OMNI, Golden Stapler, and Hipro. We
-                        support medical practices with innovative, reliable solutions that enhance surgical precision
-                        and ensure patient safety.
-                    </p>
-                </div>
-            </div>
 
-            <div class="row mt-3 pt-5">
-                <div class="col-md-5">
-                    <h2 class="mb-4 text-white">Get in touch with us</h2>
-                    <form>
-                        <div class="mb-3">
-                            <label class="form-label text-white">Name</label>
-                            <input type="text" class="form-control bgc" placeholder="Rachel Joe" required>
-                        </div>
 
-                        <div class="mb-3">
-                            <label class="form-label text-white">Email</label>
-                            <input type="email" class="form-control bgc" placeholder="Rachel@domain.com" required>
-                        </div>
+    <img id="doctorImg" class="hero-image image-doctor" src="doc.png" alt="Doctor Image" />
+    <img id="implantImg" class="hero-image image-implant" src="SLIDE-GENUTECH-CCK-10-21 1.png" alt="Implant Image" />
 
-                        <div class="mb-3">
-                            <label class="form-label text-white">Message</label>
-                            <textarea class="form-control bgc" rows="4" placeholder="Type your query here..."
-                                required></textarea>
-                        </div>
+    <div class="circle" id="circleBg"></div>
 
-                        <div>
-                            <button type="submit" class="btn  px-4 back-orange">Send my message</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+    <div class="heartbeat" id="hart1">
+      <svg width="664" height="223" viewBox="0 0 664 223" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5.02832 126.229C2.2669 126.229 0.0283203 128.467 0.0283203 131.229C0.0283203 133.99 2.2669 136.229 5.02832 136.229V126.229ZM490.082 131.229V136.229H493.379L494.678 133.198L490.082 131.229ZM507.262 91.1434L511.952 89.4098C511.242 87.4904 509.435 86.197 507.389 86.145C505.343 86.093 503.472 87.2928 502.666 89.1738L507.262 91.1434ZM543.247 188.494L538.557 190.227C539.311 192.266 541.295 193.585 543.467 193.489C545.639 193.393 547.5 191.905 548.071 189.808L543.247 188.494ZM593.159 5.24609L598.066 4.28465C597.619 2.00516 595.662 0.333477 593.34 0.249372C591.019 0.165267 588.945 1.69089 588.335 3.93208L593.159 5.24609ZM634.676 217.126L629.77 218.087C630.244 220.506 632.41 222.219 634.873 222.122C637.336 222.025 639.361 220.148 639.643 217.699L634.676 217.126ZM647.561 105.459V100.459C645.021 100.459 642.885 102.363 642.594 104.886L647.561 105.459ZM658.786 110.459C661.547 110.459 663.786 108.221 663.786 105.459C663.786 102.698 661.547 100.459 658.786 100.459V110.459ZM5.02832 136.229H490.082V126.229H5.02832V136.229ZM494.678 133.198L511.858 93.113L502.666 89.1738L485.486 129.259L494.678 133.198ZM502.572 92.877L538.557 190.227L547.937 186.76L511.952 89.4098L502.572 92.877ZM548.071 189.808L597.983 6.56011L588.335 3.93208L538.422 187.18L548.071 189.808ZM588.253 6.20754L629.77 218.087L639.583 216.164L598.066 4.28465L588.253 6.20754ZM639.643 217.699L652.528 106.033L642.594 104.886L629.709 216.553L639.643 217.699ZM647.561 110.459H658.786V100.459H647.561V110.459Z" fill="white" fill-opacity="0.08"/>
+        </svg>
+        
+    </div>
+    <div class="heartbeat fade" id="hart2">
+      <svg width="806" height="223" viewBox="0 0 806 223" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5.02783 126.7C2.26641 126.7 0.027832 128.939 0.027832 131.7C0.027832 134.461 2.26641 136.7 5.02783 136.7V126.7ZM490.082 131.7V136.7H493.379L494.677 133.67L490.082 131.7ZM507.261 91.6146L511.951 89.881C511.242 87.9615 509.434 86.6682 507.388 86.6162C505.343 86.5642 503.472 87.764 502.666 89.645L507.261 91.6146ZM543.246 188.965L538.556 190.698C539.31 192.737 541.295 194.056 543.466 193.96C545.638 193.864 547.499 192.376 548.07 190.279L543.246 188.965ZM593.159 5.71729L598.065 4.75584C597.619 2.47635 595.661 0.804669 593.34 0.720564C591.018 0.636459 588.945 2.16208 588.334 4.40327L593.159 5.71729ZM634.676 217.597L629.769 218.559C630.243 220.977 632.409 222.69 634.872 222.593C637.335 222.496 639.36 220.619 639.643 218.17L634.676 217.597ZM647.56 105.931V100.931C645.021 100.931 642.884 102.835 642.593 105.357L647.56 105.931ZM800.711 110.931C803.472 110.931 805.711 108.692 805.711 105.931C805.711 103.169 803.472 100.931 800.711 100.931V110.931ZM5.02783 136.7H490.082V126.7H5.02783V136.7ZM494.677 133.67L511.857 93.5842L502.666 89.645L485.486 129.73L494.677 133.67ZM502.571 93.3482L538.556 190.698L547.936 187.231L511.951 89.881L502.571 93.3482ZM548.07 190.279L597.983 7.0313L588.334 4.40327L538.422 187.651L548.07 190.279ZM588.252 6.67873L629.769 218.559L639.582 216.636L598.065 4.75584L588.252 6.67873ZM639.643 218.17L652.527 106.504L642.593 105.357L629.709 217.024L639.643 218.17ZM647.56 110.931H800.711V100.931H647.56V110.931Z" fill="white" fill-opacity="0.08"/>
+        </svg>        
+    </div>
+  </section>
+  <section class="products-grid-section">
+    <div class="info-side">
+      <img src="surgival-logo.png" alt="Surgival Logo" class="brand-logo" />
+      <p class="desc">
+        A Spanish Company Specializing In The Manufacture Of High-Quality Surgical Instruments,
+        Offering Innovative Solutions To Improve Surgical Outcomes And Ensure Patient Safety.
+      </p>
+      <button class="read-more-btn">Read More</button>
+    </div>
+  
+    <div class="card">
+      <img src="hip.png" class="default-img" alt="Knee" />
+      <img src="hip-hover.png" class="hover-img" alt="Knee Hover" />
+    </div>
+  
+      <div class="card">
+        <img src="knee.png" class="default-img" alt="Knee" />
+        <img src="knee-hover.png" class="hover-img" alt="Knee Hover" />
+      </div>
+  
+      <div class="card">
+        <img src="cement.png" class="default-img" alt="Knee" />
+        <img src="cement-hover.png" class="hover-img" alt="Knee Hover" />
+      </div>
+    </div>
+  </section>
+  <section class="half-circle-section animate-trigger">
+    <div class="text-side slide-from-left">
+      <img src="goldenstaplet-logo.png" alt="Golden Stapler Logo" class="brand-logo" />
+      <h2 class="title">Endoscopic Surgery</h2>
+      <p class="description">
+        Golden Stapler provides advanced surgical stapling and cutting solutions for open and endoscopic procedures. 
+        Our products are designed for maximum safety and efficiency, ensuring better outcomes for surgeons and patients.
+      </p>
+      <a href="#" class="read-btn">Read More</a>
+    </div>
+  
+    <div class="half-circle slide-from-right">
+      <img src="goldenstaplet.png" alt="Surgery" />
+    </div>
+  </section>
+  
+  <section class="half-circle-section animate-trigger reverse">
+    <div class="half-circle slide-from-left">
+      <img src="omni.png" alt="Ophthalmic Surgery" />
+    </div>
+  
+    <div class="text-side slide-from-right">
+      <img src="omni-logo.png" alt="Omni Logo" class="brand-logo" />
+      <h2 class="title">Ophthalmic Surgery</h2>
+      <p class="description">
+        Omni is a leading provider of medical equipment, from surgical instruments to patient monitoring systems and
+        disposable medical supplies. We deliver cutting-edge technology to enhance healthcare with the highest quality standards.
+      </p>
+      <a href="#" class="read-btn">Read More</a>
+    </div>
+  </section>
+
+  <section class="half-circle-section animate-trigger">
+    <div class="text-side slide-from-left">
+      <img src="hipro-logo.png" alt="Hipro Logo" class="brand-logo" />
+      <h2 class="title">Medical Laboratory Materials</h2>
+      <p class="description">
+        The GoldenStapler Endo Cutter is a single-use surgical device for cutting and stapling tissues in open and endoscopic procedures...
+      </p>
+      <a href="#" class="read-btn">Read More</a>
+    </div>
+  
+    <div class="half-circle slide-from-right">
+      <img src="hipro.png" alt="Medical Materials" />
+    </div>
+  </section>
+  
+  
+  <section class="achievements-section">
+    <div class="hand-img">
+      <img id="handImage" src="hand-default.png" alt="Hand Scan" />
+    </div>
+  
+    <div class="achievements-content">
+      <h2 class="achievements-title">Averroes Achievements</h2>
+      <div class="achievements-grid">
+        <div class="achievement">
+          <h3><span class="highlight"><span class="counter" data-target="15">0</span>years</span></h3>
+          <p>as exclusive agent for Sergival</p>
         </div>
-    </section>
-    <footer class="footer-bg text-white py-5">
-
-        <div class="container">
-            <div class="row g-4">
-
-                <!-- Products -->
-                <div class="col-md-3">
-                    <h5>Products</h5>
-                    <ul class="list-unstyled">
-                        <li>Surgival</li>
-                        <li>Golden Stapler</li>
-                        <li>OMNI</li>
-                        <li>Hipro</li>
-                    </ul>
-                </div>
-
-                <!-- Contact Info -->
-                <div class="col-md-3">
-                    <h5>Contact</h5>
-                    <ul class="list-unstyled">
-                        <li><i class="fas fa-map-marker-alt me-2"></i> Ranminka, Millaniya, Bandragama, Sri Lanka.
-                        </li>
-                        <li><i class="fas fa-phone me-2"></i> +94 11 2040 777</li>
-                        <li><i class="fas fa-globe me-2"></i> www.uswatteconfectionery.com</li>
-                        <li><i class="fas fa-envelope me-2"></i> info@uswatteconfectionery.com</li>
-                    </ul>
-                </div>
-
-                <!-- Company Info -->
-                <div class="col-md-3">
-                    <img src="av-logo.png" alt="Averroes Logo" class="img-fluid mb-2" style="max-width: 150px;" />
-                    <p><strong>FACTORY AND INTERNATIONAL:</strong><br> Leonardo Da Vinci, 12-14 - Parque Tecnológico
-                        - Paterna - Valencia - Spain</p>
-                    <p><strong>DISTRIBUTION IN SPAIN:</strong><br> Ignasi Iglesias, 70 - Esplugues de Llobregat -
-                        Barcelona - Spain</p>
-                </div>
-
-                <!-- Social -->
-                <div class="col-md-3">
-                    <h5>Follow Us</h5>
-                    <div class="d-flex gap-3 mt-2">
-                        <a href="#" class="text-white"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="text-white"><i class="fab fa-youtube"></i></a>
-                        <a href="#" class="text-white"><i class="fab fa-x-twitter"></i></a>
-                        <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-
-            </div>
+        <div class="achievement">
+          <h3><span class="highlight">+<span class="counter" data-target="25">0</span> Advanced</span></h3>
+          <p>Medical Products</p>
         </div>
+        <div class="achievement">
+          <h3><span class="highlight">+<span class="counter" data-target="25">0</span> Doctors</span></h3>
+          <p>Trust Our Products</p>
+        </div>
+        <div class="achievement">
+          <h3><span class="highlight"><span class="counter" data-target="30">0</span>years</span></h3>
+          <p>surgical experience</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="contactus-section">
+    <div class="contactus-container">
+      <div class="contactus-header">
+        <img src="av-logo.png" alt="Averroes Logo" class="contactus-logo" />
+        <p class="contactus-description">
+          <strong>Averroes</strong> is a trusted partner in the healthcare sector, providing a wide range of high-quality medical products from leading global brands such as Surgival, OMNI, Golden Stapler, and Hipro. Committed to innovation and quality, we support medical practices with reliable solutions that enhance surgical precision and ensure patient safety.
+        </p>
+      </div>
+  
+      <div class="contactus-form-block">
+        <h2>Get in touch with us</h2>
+        <form>
+          <label>Name</label>
+          <input type="text" placeholder="Rachel Joe" required />
+  
+          <label>Email</label>
+          <input type="email" placeholder="Rachel@domain.com" required />
+  
+          <label>Message</label>
+          <textarea placeholder="Type your query here...." required></textarea>
+  
+          <button type="submit">Send my message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+  
+  <footer class="site-footer">
+    <div class="footer-overlay">
+      <div class="footer-content">
+        <div class="footer-col">
+          <h4>Products</h4>
+          <ul>
+            <li>Surgival</li>
+            <li>Golden Staper</li>
+            <li>OMNI</li>
+            <li>Hipro</li>
+          </ul>
+        </div>
+  
+        <div class="footer-col contact-info">
+          <ul>
+            <li><i class="fas fa-map-marker-alt"></i> Ranminka, Millaniya, Bandragama, Sri Lanka.</li>
+            <li><i class="fas fa-phone"></i> +94 11 2040 777</li>
+            <li><i class="fas fa-globe"></i> www.uswatteconfectionery.com</li>
+            <li><i class="fas fa-envelope"></i> info@uswatteconfectionery.com</li>
+          </ul>
+        </div>
+  
+        <div class="footer-col company-info">
+          <img src="av-logo.png" alt="Averroes Logo" class="footer-logo" />
+          <p>
+            <strong>FACTORY AND INTERNATIONAL:</strong> Leonardo Da Vinci, 12-14 - Parque Tecnológico - Paterna - Valencia - Spain
+          </p>
+          <p>
+            <strong>DISTRIBUTION IN SPAIN:</strong> Ignasi Iglesias, 70 - Esplugues de Llobregat - Barcelona - Spain
+          </p>
+        </div>
+  
+        <div class="footer-col social">
+          <p>Follow us</p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-x-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  
+  
 
-    </footer>
-
-
-
-    <!-- Bootstrap JS + ملف الجافا الخاص بك -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/script.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init();
-    </script>
-
+  <script>
+    function triggerAnimation() {
+      const circle = document.getElementById('circleBg');
+      const doctor = document.getElementById('doctorImg');
+      const implant = document.getElementById('implantImg');
+      const textDoctor = document.getElementById('textDoctor');
+      const textImplant = document.getElementById('textImplant');
+      const hart2 = document.getElementById('hart2');
+      const hart1 = document.getElementById('hart1');
+  
+      circle.classList.add('right');
+      doctor.classList.add('out');
+      implant.classList.add('in');
+  
+      textDoctor.classList.add('hidden');
+      textImplant.classList.remove('hidden');
+      hart1.classList.add('fade');
+      hart2.classList.remove('fade');
+    }
+  
+    function reverseAnimation() {
+      const circle = document.getElementById('circleBg');
+      const doctor = document.getElementById('doctorImg');
+      const implant = document.getElementById('implantImg');
+      const textDoctor = document.getElementById('textDoctor');
+      const textImplant = document.getElementById('textImplant');
+      const hart2 = document.getElementById('hart2');
+      const hart1 = document.getElementById('hart1');
+  
+      circle.classList.remove('right');
+      doctor.classList.remove('out');
+      implant.classList.remove('in');
+  
+      textDoctor.classList.remove('hidden');
+      textImplant.classList.add('hidden');
+      hart2.classList.add('fade');
+      hart1.classList.remove('fade');
+    }
+  </script>
 <script>
-    const productsButton = document.getElementById('products-btn');
-    const homeButton = document.getElementById('home-btn');
-    const hart1 = document.getElementById('hart1');
-    const hart2 = document.getElementById('hart2');
-
-    // إظهار hart1 بشكل افتراضي
-    hart1.classList.add('active');
-
-    productsButton.addEventListener('click', function () {
-        hart1.classList.remove('active');
-        hart2.classList.add('active');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
     });
+  }, {
+    threshold: 0.3
+  });
 
-    homeButton.addEventListener('click', function () {
-        hart2.classList.remove('active');
-        hart1.classList.add('active');
-    });
+  document.querySelectorAll('.animate-trigger').forEach(el => observer.observe(el));
 </script>
+<script>
+  let countersStarted = false;
 
+  function startCounters() {
+    const counters = document.querySelectorAll('.counter');
+    counters.forEach(counter => {
+      const updateCount = () => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+        const increment = Math.ceil(target / 80);
 
+        if (count < target) {
+          counter.innerText = count + increment;
+          setTimeout(updateCount, 40);
+        } else {
+          counter.innerText = target;
+        }
+      };
+      updateCount();
+    });
+  }
+
+  window.addEventListener('scroll', () => {
+    const section = document.querySelector('.achievements-section');
+    const image = document.getElementById('handImage');
+    const sectionTop = section.getBoundingClientRect().top;
+    if (sectionTop < window.innerHeight - 100 && !countersStarted) {
+      countersStarted = true;
+      image.src = "hand-hover.png";
+      startCounters();
+    }
+  });
+</script>
+<script>
+  const menuToggle = document.createElement('button');
+  menuToggle.className = 'menu-toggle';
+  menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+  document.querySelector('header').insertBefore(menuToggle, document.querySelector('nav'));
+
+  menuToggle.addEventListener('click', () => {
+    document.querySelector('nav').classList.toggle('show');
+  });
+</script>
 </body>
-
 </html>

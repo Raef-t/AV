@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Animated Transition</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #0f1f2f, #123b51);
+      color: white;
+      overflow-x: hidden;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      z-index: 1000;
+      position: relative;
+    }
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      position: relative;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #1976ff;
+      transition: width 0.3s;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+    .btn-contact {
+      background: #f03800;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 12px;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .hero {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 90vh;
+      padding: 0 40px;
+      overflow: hidden;
+    }
+
+    .circle {
+      position: absolute;
+      width: 700px;
+      height: 700px;
+      border-radius: 50%;
+      background: #f03800;
+      top: 50%;
+      left: -350px;
+      transform: translateY(-50%) scale(1);
+      transition: all 1.2s ease-in-out;
+      z-index: 0;
+    }
+    .circle.right {
+      width: 400px;
+      height: 400px;
+      left: 60%;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .text-content {
+      position: absolute;
+      left: 60px;
+      z-index: 2;
+      max-width: 40%;
+      transition: opacity 0.6s ease;
+    }
+    .text-content.hidden {
+      opacity: 0;
+    }
+    .text-content h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .text-content p {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+    .btn-info {
+      background: #1976ff;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      color: white;
+      cursor: pointer;
+    }
+
+    .hero-image {
+      position: relative;
+      z-index: 1;
+      transition: transform 1s ease, opacity 1s ease;
+      max-height: 450px;
+    }
+
+    .image-doctor {
+      transform: translateX(0);
+    }
+    .image-doctor.out {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+
+    .image-implant {
+      position: absolute;
+      left: 60%;
+      top: -500px;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: top 1.2s ease, opacity 1.2s ease;
+    }
+    .image-implant.in {
+      top: 50%;
+      opacity: 1;
+    }
+
+    .heartbeat {
+      position: absolute;
+      bottom: 60px;
+      left: 0;
+      width: 100%;
+      z-index: 0;
+    }
+
+    .products-section {
+      background: #102a3c;
+      padding: 60px 40px;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+    }
+    .product-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      overflow: hidden;
+      width: 280px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .product-card:hover {
+      transform: translateY(-10px);
+    }
+    .product-card img {
+      width: 100%;
+      display: block;
+    }
+    .product-info {
+      padding: 20px;
+    }
+    .product-info h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+    .product-info p {
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div><img src="av-logo.png" alt="Logo" height="40"></div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Products</a>
+      <a href="#">About Us</a>
+      <a href="#">Surgical</a>
+    </nav>
+    <button class="btn-contact">Contact Us</button>
+  </header>
+
+  <section class="hero">
+    <div class="text-content" id="textDoctor">
+      <h1>Welcome To<br />AVERRES EXCLUSIVE AGENT OF SERGOVAL</h1>
+      <p>Spanish company specialized in orthopedic innovations.</p>
+      <button class="btn-info">Read More</button>
+    </div>
+
+    <div class="text-content hidden" id="textImplant">
+      <h1>GENUTECH CCK</h1>
+      <p>Designed for the most rigorous demands in revision total knee arthroplasties and large bone defects.</p>
+      <button class="btn-info">More Info</button>
+    </div>
+
+    <img id="doctorImg" class="hero-image image-doctor" src="doc.png" alt="Doctor Image" />
+    <img id="implantImg" class="hero-image image-implant" src="SLIDE-GENUTECH-CCK-10-21 1.png" alt="Implant Image" />
+
+    <div class="circle" id="circleBg"></div>
+
+    <div class="heartbeat">
+      <svg width="664" height="223" viewBox="0 0 664 223" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5.02832 126.229C2.2669 126.229 0.0283203 128.467 0.0283203 131.229C0.0283203 133.99 2.2669 136.229 5.02832 136.229V126.229ZM490.082 131.229V136.229H493.379L494.678 133.198L490.082 131.229ZM507.262 91.1434L511.952 89.4098C511.242 87.4904 509.435 86.197 507.389 86.145C505.343 86.093 503.472 87.2928 502.666 89.1738L507.262 91.1434ZM543.247 188.494L538.557 190.227C539.311 192.266 541.295 193.585 543.467 193.489C545.639 193.393 547.5 191.905 548.071 189.808L543.247 188.494ZM593.159 5.24609L598.066 4.28465C597.619 2.00516 595.662 0.333477 593.34 0.249372C591.019 0.165267 588.945 1.69089 588.335 3.93208L593.159 5.24609ZM634.676 217.126L629.77 218.087C630.244 220.506 632.41 222.219 634.873 222.122C637.336 222.025 639.361 220.148 639.643 217.699L634.676 217.126ZM647.561 105.459V100.459C645.021 100.459 642.885 102.363 642.594 104.886L647.561 105.459ZM658.786 110.459C661.547 110.459 663.786 108.221 663.786 105.459C663.786 102.698 661.547 100.459 658.786 100.459V110.459ZM5.02832 136.229H490.082V126.229H5.02832V136.229ZM494.678 133.198L511.858 93.113L502.666 89.1738L485.486 129.259L494.678 133.198ZM502.572 92.877L538.557 190.227L547.937 186.76L511.952 89.4098L502.572 92.877ZM548.071 189.808L597.983 6.56011L588.335 3.93208L538.422 187.18L548.071 189.808ZM588.253 6.20754L629.77 218.087L639.583 216.164L598.066 4.28465L588.253 6.20754ZM639.643 217.699L652.528 106.033L642.594 104.886L629.709 216.553L639.643 217.699ZM647.561 110.459H658.786V100.459H647.561V110.459Z" fill="white" fill-opacity="0.08"/>
+        </svg>
+        
+    </div>
+  </section>
+
+  <section class="products-section">
+    <div class="product-card" onclick="triggerAnimation()">
+      <img src="SLIDE-GENUTECH-CCK-10-21 1.png" alt="GENUTECH CCK" />
+      <div class="product-info">
+        <h3>GENUTECH CCK</h3>
+        <p>Click to view animation</p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function triggerAnimation() {
+      const circle = document.getElementById('circleBg');
+      const doctor = document.getElementById('doctorImg');
+      const implant = document.getElementById('implantImg');
+      const textDoctor = document.getElementById('textDoctor');
+      const textImplant = document.getElementById('textImplant');
+
+      circle.classList.add('right');
+      doctor.classList.add('out');
+      implant.classList.add('in');
+      textDoctor.classList.add('hidden');
+      textImplant.classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>

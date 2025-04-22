@@ -1,0 +1,410 @@
+.navbar
+{
+
+  z-index: 2;
+}
+
+
+
+
+.hero-background-image {
+    background-image: url('../background.png');
+    position: relative;
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    /* min-height: 80vh; */
+
+  }
+
+  /*  */
+  .hidden {
+    display: none;
+  }
+  
+  .fade-in {
+    animation: fadeIn 0.8s forwards;
+  }
+  
+  .fade-out {
+    animation: fadeOut 0.8s forwards;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes fadeOut {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(20px); }
+  }
+/*  */
+.btn-orange {
+    background-color: orange;
+    color: white;
+    border-radius: 25px;
+    padding: 6px 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-orange:hover {
+    background-color: darkorange;
+    color: white;
+  }
+  .btn-custom-red {
+    background-color: #f03800;
+    color: white;
+    border-radius: 25px;
+    padding: 6px 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    border: none;
+  }
+  
+  .btn-custom-red:hover {
+    background-color: #c43000; 
+    color: white;
+  }
+  /*  */
+  /* زيادة المسافة بين عناصر الناف بار */
+.navbar-nav .nav-item {
+    margin-right: 2rem; /* تعديل الفجوة بين العناصر */
+  }
+  
+  /* تنسيق الروابط عند الـ hover */
+  .navbar-nav .nav-link {
+    position: relative;
+    color: rgb(255, 255, 255);
+    padding-bottom: 4px; 
+    transition: color 0.3s ease; 
+  }
+  
+  /* الخط الأزرق تحت الرابط عند الـ hover بطريقة انسيابية */
+  .navbar-nav .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0; /* يبدأ العرض من صفر */
+    background-color: #007bff; /* لون الخط الأزرق */
+    transition: width 0.3s ease; /* انسيابية للعرض */
+  }
+  
+  .navbar-nav .nav-link:hover::after {
+    width: 100%; /* عند المرور يظهر الخط بالكامل */
+  }
+  
+  /* تغيير اللون عند الـ hover */
+  .navbar-nav .nav-link:hover {
+    color: #ffffff; /* أزرق فاتح عند المرور */
+  }
+ /* SECTION PRODUCT  */
+ .products-grid-section {
+
+  background: #102a3c;
+ 
+}
+
+
+
+.image-switch-card {
+  overflow: hidden;
+}
+
+.image-switch-card .hover-img {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.image-switch-card .default-img {
+  transition: opacity 0.4s ease;
+}
+
+.image-switch-card:hover .hover-img {
+  opacity: 1;
+}
+
+.image-switch-card:hover .default-img {
+  opacity: 0;
+}
+/* move circle */
+.animated-circle {
+  position: absolute;
+  top: 70%;
+  left: -20vw; /* بدل -350px */
+  width: 40vw; /* بدل 600px */
+  height: 40vw;
+  background-color: rgba(240, 56, 0, 0.9);
+  border-radius: 50%;
+  transform: translateY(-50%);
+  transition: all 1s ease;
+  z-index: 1;
+}
+
+.hero-background-image .text-white {
+  position: relative;
+  z-index: 2;
+}
+
+/* الحالة عند تفعيل الحركة */
+.animated-circle.move-right {
+  left: 70vw;
+  width: 25vw; 
+  height: 25vw;
+  transform: translate(-70%, -70%);
+}
+
+/* @media (max-width: 768px) {
+  .animated-circle {
+    display: none;
+  }
+} */
+@media (min-width: 1800px) {
+  .animated-circle {
+    display: none;
+  }
+}
+
+/* تحرك الصورة في الهيرو سكشن  */
+/* التحول السلس */
+.transition-target {
+  transition: all 1s ease-in-out;
+}
+
+/* التأثير عند التفعيل */
+.transition-target.hidden-slide {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+/* تحريك صورة المفصل */
+/* الوضع الابتدائي - مخفية ومرتفعة */
+
+#implantImg {
+  position: absolute;
+  top: 22vh;
+  left: 50vw; 
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all 1s ease;
+  z-index: 100; /* تأكد إنها فوق العناصر الأخرى */
+  width: 20vw;
+}
+/* الحالة عند التفعيل */
+#implantImg.animate-down {
+  opacity: 1;
+  transform: translateY(0vh);
+}
+@media (min-width: 1800px) {
+  #implantImg{
+    display: none;
+  }
+}
+@media (max-width: 900px) {
+  #implantImg {
+    top: 15vh; /* أو أي قيمة أعلى تناسب شكل الصفحة */
+    width:  20vw; /* تكبيرها للجوال إذا تحتاج */
+  }
+}
+.btn-b {
+  color: #ffffff !important;
+  background-color: #195870 !important;
+  
+}
+.btn-b:hover {
+  background-color: #ffffff;
+  color: #195870;
+}
+
+.Title-card
+{
+color: #f03800;
+
+}
+
+
+/*  */
+.counter {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+ /*  */
+ .text-orange {
+  color: #f03800; /* اللون البرتقالي */
+}
+
+.underline-line {
+  border: none;
+  border-top: 3px solid #f03800; /* خط برتقالي تحت النص */
+  width: 100%; /* الخط يمتد عبر كامل العرض */
+  margin-top: 10px; /* المسافة بين النص والخط */
+
+}
+/* 
+
+*/
+
+
+.waving-hand {
+  transition: transform 2s ease;
+  display: inline-block;
+  margin-left: -18vw;
+  transform: rotate(+20deg);
+  width: 40vw;
+}
+@media (max-width: 768px) {
+  .waving-hand {
+    width: 80vw; /* تكبير الحجم للجوال */
+    margin-left: -30vw; /* تعديل الإزاحة حسب الحاجة */
+  }
+}
+
+.waving-hand:hover {
+  animation: waveMotion 2s ease-in-out forwards;
+}
+
+@keyframes waveMotion {
+  0% {
+    transform: rotate(+30deg);
+  }
+  25% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(-10deg);
+  }
+  75% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+/*  */
+
+.rounded-end-bottom {
+  border-bottom-right-radius: 30vw;
+ background-color: rgb(255, 255, 255);
+}
+.backcolor
+{
+  background-color: #102a3c;
+}
+.bgc
+{
+  background-color: #061e30;
+color: white;
+}
+
+.footer-bg {
+  background-image: url('../footer.png');
+  background-color: #102a3c; /* احتياطي لو الصورة ما ظهرت */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%; /* تمدد الصورة طولا وعرضا */
+  width: 100%;
+  height: 100%;
+}
+
+.back-orange {
+  background-color: #f03800; 
+  color: white;
+  transition: background-color 0.3s ease; 
+}
+
+.back-orange:hover {
+  background-color: #d53200; 
+}
+
+/*  */   /* تأثير النبض */
+.heartbeat {
+  animation: pulse 1.5s infinite;
+  position: absolute;
+  visibility: hidden;
+  transition: opacity 0.8s ease-in-out;
+  width: 42.5vw;   
+  height: 13vh;
+}
+
+@media (max-width: 768px) {
+  .heartbeat{
+    width: 44.5vw;  
+   
+  }
+}
+
+.heartbeat.active {
+  opacity: 1;
+  visibility: visible;
+}
+/* تأثير النبض على كل من الـ SVG */
+@keyframes pulse {
+  0% {
+      transform: scale(1);
+      opacity: 0.8;
+  }
+  50% {
+      transform: scale(1.1);
+      opacity: 1;
+  }
+  100% {
+      transform: scale(1);
+      opacity: 0.8;
+  }
+}
+
+/* تأثير Fade In و Fade Out */
+.hidden {
+  display: none;
+}
+
+.fade-in {
+  animation: fadeIn 0.8s forwards;
+}
+
+.fade-out {
+  animation: fadeOut 0.8s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+      opacity: 1;
+      transform: translateY(0);
+  }
+  to {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+}
+
+/* تنسيق الأزرار */
+.btn-info {
+  background-color: #17a2b8;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn-info:hover {
+  background-color: #138496;
+}
+
+.content {
+  padding: 20px;
+}

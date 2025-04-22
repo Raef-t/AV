@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>av</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- ملف التنسيقات الخاص بك -->
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+
+    <div class="container-fluid hero-background-image ">
+        <div class="animated-circle"></div>
+        <div> <img id="implantImg" src="SLIDE-GENUTECH-CCK-10-21 1.png" alt="Implant Image" />
+        </div>
+
+        <nav class="navbar navbar-expand-lg  ">
+
+            <div class="container mt-3">
+                <img src="av-logo.png" alt="Logo" height="50">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-4">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="home-btn">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="products-btn">Products</a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Surgical</a>
+                        </li>
+                    </ul>
+                    <div class="ms-auto">
+                        <a href="#" class="btn btn-custom-red">Contact Us</a>
+                    </div>
+                </div>
+
+            </div>
+        </nav>
+
+
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- القلب الأول مع تأثير النبض -->
+                <div class="heartbeat" id="hart1">
+                    <svg  viewBox="0 0 664 223" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M5.02832 126.229C2.2669 126.229 0.0283203 128.467 0.0283203 131.229C0.0283203 133.99 2.2669 136.229 5.02832 136.229V126.229ZM490.082 131.229V136.229H493.379L494.678 133.198L490.082 131.229ZM507.262 91.1434L511.952 89.4098C511.242 87.4904 509.435 86.197 507.389 86.145C505.343 86.093 503.472 87.2928 502.666 89.1738L507.262 91.1434ZM543.247 188.494L538.557 190.227C539.311 192.266 541.295 193.585 543.467 193.489C545.639 193.393 547.5 191.905 548.071 189.808L543.247 188.494ZM593.159 5.24609L598.066 4.28465C597.619 2.00516 595.662 0.333477 593.34 0.249372C591.019 0.165267 588.945 1.69089 588.335 3.93208L593.159 5.24609ZM634.676 217.126L629.77 218.087C630.244 220.506 632.41 222.219 634.873 222.122C637.336 222.025 639.361 220.148 639.643 217.699L634.676 217.126ZM647.561 105.459V100.459C645.021 100.459 642.885 102.363 642.594 104.886L647.561 105.459ZM658.786 110.459C661.547 110.459 663.786 108.221 663.786 105.459C663.786 102.698 661.547 100.459 658.786 100.459V110.459ZM5.02832 136.229H490.082V126.229H5.02832V136.229ZM494.678 133.198L511.858 93.113L502.666 89.1738L485.486 129.259L494.678 133.198ZM502.572 92.877L538.557 190.227L547.937 186.76L511.952 89.4098L502.572 92.877ZM548.071 189.808L597.983 6.56011L588.335 3.93208L538.422 187.18L548.071 189.808ZM588.253 6.20754L629.77 218.087L639.583 216.164L598.066 4.28465L588.253 6.20754ZM639.643 217.699L652.528 106.033L642.594 104.886L629.709 216.553L639.643 217.699ZM647.561 110.459H658.786V100.459H647.561V110.459Z"
+                            fill="white" fill-opacity="0.08" />
+                    </svg>
+                </div>
+
+                <!-- القلب الثاني مع تأثير النبض -->
+                <div class="heartbeat fade" id="hart2">
+                    <svg  viewBox="0 0 806 223" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M5.02783 126.7C2.26641 126.7 0.027832 128.939 0.027832 131.7C0.027832 134.461 2.26641 136.7 5.02783 136.7V126.7ZM490.082 131.7V136.7H493.379L494.677 133.67L490.082 131.7ZM507.261 91.6146L511.951 89.881C511.242 87.9615 509.434 86.6682 507.388 86.6162C505.343 86.5642 503.472 87.764 502.666 89.645L507.261 91.6146ZM543.246 188.965L538.556 190.698C539.31 192.737 541.295 194.056 543.466 193.96C545.638 193.864 547.499 192.376 548.07 190.279L543.246 188.965ZM593.159 5.71729L598.065 4.75584C597.619 2.47635 595.661 0.804669 593.34 0.720564C591.018 0.636459 588.945 2.16208 588.334 4.40327L593.159 5.71729ZM634.676 217.597L629.769 218.559C630.243 220.977 632.409 222.69 634.872 222.593C637.335 222.496 639.36 220.619 639.643 218.17L634.676 217.597ZM647.56 105.931V100.931C645.021 100.931 642.884 102.835 642.593 105.357L647.56 105.931ZM800.711 110.931C803.472 110.931 805.711 108.692 805.711 105.931C805.711 103.169 803.472 100.931 800.711 100.931V110.931ZM5.02783 136.7H490.082V126.7H5.02783V136.7ZM494.677 133.67L511.857 93.5842L502.666 89.645L485.486 129.73L494.677 133.67ZM502.571 93.3482L538.556 190.698L547.936 187.231L511.951 89.881L502.571 93.3482ZM548.07 190.279L597.983 7.0313L588.334 4.40327L538.422 187.651L548.07 190.279ZM588.252 6.67873L629.769 218.559L639.582 216.636L598.065 4.75584L588.252 6.67873ZM639.643 218.17L652.527 106.504L642.593 105.357L629.709 217.024L639.643 218.17ZM647.56 110.931H800.711V100.931H647.56V110.931Z"
+                            fill="white" fill-opacity="0.08" />
+                    </svg>
+                </div>
+                <!-- النص -->
+                <div class="col-6 text-white ">
+                    <div id="mainText">
+                        <p style="font-size: 1.2vw;">Welcome To</p>
+                        <h1 style="font-size: 2.5vw;">AVERRES EXCLUSIVE AGENT OF SERGOVAL SPANISH COMPANY</h1>
+                    </div>
+                    <div class="text-content hidden" id="textImplant">
+                        <h1 style="font-size: 2.5vw;">GENUTECH CCK</h1>
+                        <p style="font-size: 1.2vw;">Designed for the most rigorous demands in revision total knee arthroplasties and large bone
+                            defects.</p>
+                        <button class="btn btn-info" style="width: 10vw;font-size: 1.2vw;">More Info</button>
+                    </div>
+
+                </div>
+
+
+
+                <!-- الصورة -->
+                <div class="col-6 text-center">
+                    <img src="doc.png" alt="Hero Image" class="img-fluid hero-img transition-target">
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+    </div>
+    <section class="products-grid-section py-5">
+        <div class="container">
+            <div class="row align-items-center mb-4">
+                <!-- الجانب النصي -->
+                <div class="col-md-4 text-center text-md-start mb-4 mb-md-0">
+                    <img src="surgival-logo.png" alt="Surgival Logo" class="img-fluid mb-3" style="max-width: 200px;">
+                    <p class="text-white">
+                        A Spanish Company Specializing In The Manufacture Of High-Quality Surgical Instruments,
+                        Offering Innovative Solutions To Improve Surgical Outcomes And Ensure Patient Safety.
+                    </p>
+                    <button class="btn btn-custom-red rounded-pill px-4 mt-2">Read More</button>
+                </div>
+
+                <!-- المنتجات -->
+                <div class="col-md-8">
+                    <div class="row g-4">
+                        <!-- كارد 1 -->
+                        <div class="col-sm-6 col-lg-4">
+                            <div class="position-relative image-switch-card">
+                                <img src="hip.png" alt="Hip" class="img-fluid w-100 default-img">
+                                <img src="hip-hover.png" alt="Hip Hover"
+                                    class="img-fluid w-100 hover-img position-absolute top-0 start-0">
+                            </div>
+                        </div>
+
+                        <!-- كارد 2 -->
+
+                        <div class="col-sm-6 col-lg-4">
+                            <div class="position-relative image-switch-card">
+                                <img src="knee.png" alt="Hip" class="img-fluid w-100 default-img">
+                                <img src="knee-hover.png" alt="Hip Hover"
+                                    class="img-fluid w-100 hover-img position-absolute top-0 start-0">
+                            </div>
+                        </div>
+                        <!--  -->
+                        <!-- كارد 3 -->
+                        <div class="col-sm-6 col-lg-4">
+                            <div class="position-relative image-switch-card">
+                                <img src="cement.png" alt="Hip" class="img-fluid w-100 default-img">
+                                <img src="cement-hover.png" alt="Hip Hover"
+                                    class="img-fluid w-100 hover-img position-absolute top-0 start-0">
+                            </div>
+                        </div>
+
+                        <!--  -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="backcolor">
+        <section class="py-5 rounded-end-bottom">
+            <div class="container">
+
+                <!-- الكرت 1 -->
+                <div class="row align-items-center mb-5">
+
+                    <div class="col-md-6  mb-3" data-aos="fade-right">
+                        <img src="goldenstaplet-logo.png" class="img-fluid rounded mb-3" alt="Image 1" />
+                        <h3 class="mb-3 Title-card">Endoscopic Surgery</h3>
+                        <p class="mb-3 fs-5"> Golden Stapler provides advanced surgical stapling and cutting solutions
+                            for
+                            open and endoscopic procedures.
+                            Our products are designed for maximum safety and efficiency, ensuring better outcomes for
+                            surgeons and patients.</p>
+                        <a href="#" class="btn btn-b">Read More</a>
+
+                    </div>
+                    <div class="col-md-6" data-aos="fade-left">
+                        <img src="goldenstaplet.png" class="img-fluid rounded" alt="Image 1" />
+                    </div>
+                </div>
+
+                <!-- الكرت 2 -->
+                <div class="row align-items-center mb-5 flex-md-row-reverse">
+                    <div class="col-md-6 mb-3" data-aos="fade-left">
+                        <img src="omni-logo.png" class="img-fluid rounded mb-3" alt="Image 2" />
+                        <h3 class="mb-3 Title-card">Ophthalmic Surgery</h3>
+                        <p class="mb-3 fs-5">
+                            Omni is a leading provider of medical equipment, from surgical instruments to patient
+                            monitoring
+                            systems and
+                            disposable medical supplies. We deliver cutting-edge technology to enhance healthcare with
+                            the
+                            highest quality standards.
+                        </p>
+                        <a href="#" class="btn btn-b">Read More</a>
+                    </div>
+                    <div class="col-md-6  " data-aos="fade-right">
+
+                        <img src="omni.png" class="img-fluid rounded" alt="Image 2" />
+                    </div>
+                </div>
+                <!-- الكرت3 -->
+                <div class="row align-items-center mb-5 flex-md-row-reverse">
+                    <div class="col-md-6" data-aos="fade-left">
+                        <img src="hipro.png" class="img-fluid rounded" alt="Image 2" />
+
+                    </div>
+                    <div class="col-md-6  mb-3" data-aos="fade-right">
+
+                        <img src="hipro-logo.png" class="img-fluid rounded mb-3" alt="Image 2" />
+                        <h3 class="mb-3 Title-card">Medical Laboratory Materials</h3>
+                        <p class="mb-3 fs-5">
+                            The GoldenStapler Endo Cutter is a single-use surgical device for cutting and stapling
+                            tissues
+                            in open and endoscopic procedures...
+                        </p>
+                        <a href="#" class="btn btn-b">Read More</a>
+                    </div>
+                </div>
+
+
+            </div>
+            <!--  -->
+            <div class="container-fluid" style="margin-top: 20vh;">
+                <div class="row">
+                    <div class="col-4">
+                        <img id="handImage" src="hand-hover.png" alt="Hand Scan" class="waving-hand">
+                    </div>
+
+
+                    <div class="col-8">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col text-start">
+                                    <h1 class="text-orange">Averroes Achievements</h1>
+                                    <hr class="underline-line">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h2 class="fs-1 fw-bold text-primary"><span class="counter"
+                                            data-target="15">0</span> years</h2>
+
+                                    <p class="fs-3">as exclusive agent for Sergival</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <h2 class="fs-1 fw-bold text-primary"> +<span class="counter"
+                                            data-target="25">0</span> Advanced</h2>
+                                    <p class="fs-3">Medical Products</p>
+                                </div>
+                            </div>
+                            <div class="row">
+
+                                <div class="col-md-6">
+                                    <h2 class="fs-1 fw-bold text-primary"> +<span class="counter"
+                                            data-target="25">0</span> Doctors</h2>
+                                    <p class="fs-3">Trust Our Products</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <h2 class="fs-1 fw-bold text-primary"><span class="counter"
+                                            data-target="30">0</span> years</h2>
+                                    <p class="fs-3">surgical experience</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </div>
+    <section class="py-5  backcolor">
+        <div class="container">
+            <div class="row align-items-center mb-5">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <img src="av-logo.png" alt="Averroes Logo" class="img-fluid" style="max-width: 200px;">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p class="fs-5 text-white">
+                        <strong>Averroes</strong> is a trusted partner in the healthcare sector, providing high-quality
+                        medical products from leading global brands like Surgival, OMNI, Golden Stapler, and Hipro. We
+                        support medical practices with innovative, reliable solutions that enhance surgical precision
+                        and ensure patient safety.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row mt-3 pt-5">
+                <div class="col-md-5">
+                    <h2 class="mb-4 text-white">Get in touch with us</h2>
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label text-white">Name</label>
+                            <input type="text" class="form-control bgc" placeholder="Rachel Joe" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label text-white">Email</label>
+                            <input type="email" class="form-control bgc" placeholder="Rachel@domain.com" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label text-white">Message</label>
+                            <textarea class="form-control bgc" rows="4" placeholder="Type your query here..."
+                                required></textarea>
+                        </div>
+
+                        <div>
+                            <button type="submit" class="btn  px-4 back-orange">Send my message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer-bg text-white py-5">
+
+        <div class="container">
+            <div class="row g-4">
+
+                <!-- Products -->
+                <div class="col-md-3">
+                    <h5>Products</h5>
+                    <ul class="list-unstyled">
+                        <li>Surgival</li>
+                        <li>Golden Stapler</li>
+                        <li>OMNI</li>
+                        <li>Hipro</li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="col-md-3">
+                    <h5>Contact</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-map-marker-alt me-2"></i> Ranminka, Millaniya, Bandragama, Sri Lanka.
+                        </li>
+                        <li><i class="fas fa-phone me-2"></i> +94 11 2040 777</li>
+                        <li><i class="fas fa-globe me-2"></i> www.uswatteconfectionery.com</li>
+                        <li><i class="fas fa-envelope me-2"></i> info@uswatteconfectionery.com</li>
+                    </ul>
+                </div>
+
+                <!-- Company Info -->
+                <div class="col-md-3">
+                    <img src="av-logo.png" alt="Averroes Logo" class="img-fluid mb-2" style="max-width: 150px;" />
+                    <p><strong>FACTORY AND INTERNATIONAL:</strong><br> Leonardo Da Vinci, 12-14 - Parque Tecnológico
+                        - Paterna - Valencia - Spain</p>
+                    <p><strong>DISTRIBUTION IN SPAIN:</strong><br> Ignasi Iglesias, 70 - Esplugues de Llobregat -
+                        Barcelona - Spain</p>
+                </div>
+
+                <!-- Social -->
+                <div class="col-md-3">
+                    <h5>Follow Us</h5>
+                    <div class="d-flex gap-3 mt-2">
+                        <a href="#" class="text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </footer>
+
+
+
+    <!-- Bootstrap JS + ملف الجافا الخاص بك -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+<script>
+    const productsButton = document.getElementById('products-btn');
+    const homeButton = document.getElementById('home-btn');
+    const hart1 = document.getElementById('hart1');
+    const hart2 = document.getElementById('hart2');
+
+    // إظهار hart1 بشكل افتراضي
+    hart1.classList.add('active');
+
+    productsButton.addEventListener('click', function () {
+        hart1.classList.remove('active');
+        hart2.classList.add('active');
+    });
+
+    homeButton.addEventListener('click', function () {
+        hart2.classList.remove('active');
+        hart1.classList.add('active');
+    });
+</script>
+
+
+</body>
+
+</html>

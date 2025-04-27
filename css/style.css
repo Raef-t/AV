@@ -296,9 +296,16 @@ color: #f03800;
 }
 .bgc
 {
-  background-color: #061e30;
-color: white;
+  background-color: #1B4F62;
+color: rgb(255, 255, 255);
 }
+.bgc::placeholder 
+  {
+    font-weight: 10;
+    color: rgb(255 255 255 / 60%) !important;
+  }
+
+
 
 .footer-bg {
   background-image: url('../footer.png');
@@ -346,23 +353,12 @@ color: white;
   opacity: 1;
   visibility: visible;
 }
-/* تأثير النبض على كل من الـ SVG */
-/* @keyframes pulse {
-  0% {
-      transform: scale(1);
-      opacity: 0.8;
-  }
-  50% {
-      transform: scale(1.1);
-      opacity: 1;
-  }
-  100% {
-      transform: scale(1);
-      opacity: 0.8;
-  }
-} */
+.f
+{
+  font-weight: 10;
+  color: rgb(255 255 255 / 60%) !important;
+}
 
-/* تأثير Fade In و Fade Out */
 .hidden {
   display: none;
 }
@@ -424,7 +420,7 @@ color: white;
 }
 @media (max-width: 768px) {
   .bt-size{
-    width: 10vw;
+    width: 12vw;
     font-size: 1.2vw;
   }
 }

@@ -137,7 +137,7 @@
   left: -20vw; /* بدل -350px */
   width: 40vw; /* بدل 600px */
   height: 40vw;
-  background-color: rgba(240, 56, 0, 0.9);
+  background-color: rgba(240, 56, 0, 0.8);
   border-radius: 50%;
   transform: translateY(-50%);
   transition: all 1s ease;
@@ -254,6 +254,7 @@ color: #f03800;
   margin-left: -18vw;
   transform: rotate(+20deg);
   width: 40vw;
+ 
 }
 @media (max-width: 768px) {
   .waving-hand {
@@ -310,7 +311,8 @@ color: white;
 }
 
 .back-orange {
-  background-color: #f03800; 
+  background-color: #EF3834;
+  ; 
   color: white;
   transition: background-color 0.3s ease; 
 }
@@ -325,14 +327,14 @@ color: white;
   position: absolute;
   visibility: hidden;
   transition: opacity 0.8s ease-in-out;
-  width: 42.5vw;   
-  height: 13vh;
+  width: 43.8vw;   
+  height: 4vh;
 }
 
 @media (max-width: 768px) {
   .heartbeat{
-    width: 44.5vw;  
-   
+    width: 50.5vw;  
+    height: 3vh;
   }
 }
 @media (min-width: 1800px) {
@@ -345,7 +347,7 @@ color: white;
   visibility: visible;
 }
 /* تأثير النبض على كل من الـ SVG */
-@keyframes pulse {
+/* @keyframes pulse {
   0% {
       transform: scale(1);
       opacity: 0.8;
@@ -358,7 +360,7 @@ color: white;
       transform: scale(1);
       opacity: 0.8;
   }
-}
+} */
 
 /* تأثير Fade In و Fade Out */
 .hidden {
@@ -411,4 +413,46 @@ color: white;
 
 .content {
   padding: 20px;
+}
+
+.bt-size
+{
+  text-align: center;
+  /* height: 4vh; */
+  width: 9vw;
+  font-size: 1vw;
+}
+@media (max-width: 768px) {
+  .bt-size{
+    width: 10vw;
+    font-size: 1.2vw;
+  }
+}
+
+
+
+/* تحضير العناصر التي ستتحرك */
+.scroll-animate {
+  opacity: 0;
+  transform: translateX(130px); /* تبدأ من خارج الشاشة على اليمين */
+  transition: all 2s ease-out;
+}
+
+/* عندما تصبح في مجال الرؤية */
+.scroll-animate.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+.scroll-animate2 {
+  opacity: 0;
+  transform: translateX(170px); /* تبدأ من خارج الشاشة على اليمين */
+  transition: all 2s ease-out;
+}
+
+/* عندما تصبح في مجال الرؤية */
+.scroll-animate2.visible {
+  opacity: 1;
+  transform: translateX(0);
 }
